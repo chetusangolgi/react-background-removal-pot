@@ -9,7 +9,6 @@ const BACKGROUND_OPTIONS = [
   { id: 'bg2', src: '/bg2.jpg', label: 'Background 3' },
   { id: 'bg3', src: '/bg3.jpg', label: 'Background 4' },
   { id: 'bg4', src: '/bg4.jpg', label: 'Background 5' },
-  { id: 'bg4', src: '/ccc.png', label: 'Background 5' },
   { id: 'bg5', src: '/bg5.jpg', label: 'Background 6' }
 ];
 

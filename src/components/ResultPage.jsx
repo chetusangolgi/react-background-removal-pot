@@ -144,13 +144,13 @@ function ResultPage() {
        className="result-layout"
        style={{
          display: 'flex',
-         flexDirection: 'row',   // Always side by side
+         flexDirection: deviceType === 'mobile' ? 'column' : 'row',
          alignItems: 'center',
-         justifyContent: 'center',
-         gap: 0,                  // <-- No gap between them
+         justifyContent: deviceType === 'mobile' ? 'center' : 'space-evenly',
+         gap: deviceType === 'mobile' ? '20px' : '0px',
          width: '100vw',
          height: '100vh',
-         padding: 0,
+         padding: deviceType === 'tablet' ? '20px' : '40px',
          boxSizing: 'border-box',
          overflow: 'hidden'
        }}
@@ -160,7 +160,7 @@ function ResultPage() {
          className="image-container"
          style={{
            ...containerStyle,
-           flex: '0 0 auto'
+           flex: deviceType === 'mobile' ? '0 0 auto' : '1'
          }}
        >
          <img
@@ -184,9 +184,11 @@ function ResultPage() {
            flexDirection: 'column',
            alignItems: 'center',
            justifyContent: 'center',
-           padding: 0,          // No extra padding
+           gap: deviceType === 'tablet' ? '15px' : '20px',
            boxSizing: 'border-box',
-           flex: '0 0 auto'
+           flex: deviceType === 'mobile' ? '0 0 auto' : '0 0 auto',
+           width: deviceType === 'tablet' ? '200px' : '250px',
+           height: '100%'
          }}
        >
          {imageUrl && (
@@ -196,12 +198,12 @@ function ResultPage() {
                display: 'flex',
                flexDirection: 'column',
                alignItems: 'center',
-               gap: '15px'
+               gap: deviceType === 'tablet' ? '10px' : '15px'
              }}
            >
              <QRCodeCanvas
                value={imageUrl}
-               size={150}
+               size={deviceType === 'tablet' ? 140 : 150}
                level="H"
                className="qrcode"
                style={{
@@ -213,7 +215,7 @@ function ResultPage() {
              <p
                style={{
                  color: 'white',
-                 fontSize: '16px',
+                 fontSize: deviceType === 'tablet' ? '14px' : '16px',
                  textAlign: 'center',
                  margin: '0',
                  opacity: '0.8'
@@ -231,11 +233,11 @@ function ResultPage() {
              backgroundColor: '#2244A2',
              color: 'white',
              border: 'none',
-             padding: '20px 40px',
-             fontSize: '22px',
+             padding: deviceType === 'tablet' ? '16px 32px' : '20px 40px',
+             fontSize: deviceType === 'tablet' ? '20px' : '22px',
              borderRadius: '8px',
              cursor: 'pointer',
-             minWidth: '160px'
+             minWidth: deviceType === 'tablet' ? '140px' : '160px'
            }}
          >
            Home

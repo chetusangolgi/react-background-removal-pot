@@ -54,12 +54,13 @@ const calculateResponsiveDimensions = (imageDimensions, constraints, viewport, d
   
   // For horizontal layout (non-mobile), reserve space for QR code and controls
   if (deviceType !== 'mobile') {
-    // Reserve space for QR code (200px) + gap (40px) + button width (~80px) + padding (40px)
-    const reservedWidth = 200 + 40 + 80 + 40; // 360px (reduced from 430px)
+    // For tablet/desktop: Reserve space for QR code (150px) + button width (160px) + minimal gap (30px)
+    const reservedWidth = 150 + 160 + 30; // 340px (more compact for tablets)
     maxWidthPx = Math.max(minWidthPx, viewport.width - reservedWidth);
     
-    // Reserve space for padding and ensure content fits in viewport - be more conservative
-    maxHeightPx = Math.min(maxHeightPx, viewport.height - 80); // 80px total padding for safety
+    // Reserve less vertical space for tablets to maximize image size
+    const verticalPadding = deviceType === 'tablet' ? 40 : 80;
+    maxHeightPx = Math.min(maxHeightPx, viewport.height - verticalPadding);
   } else {
     // For mobile, reserve space for QR code and button below the image
     const reservedHeight = 150 + 20 + 60 + 40 + 20; // QR + gap + button + padding + extra safety

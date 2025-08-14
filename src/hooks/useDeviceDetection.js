@@ -17,11 +17,11 @@ export const LAYOUT_CONSTRAINTS = {
     breakpoint: { min: 0, max: 768 }
   },
   [DEVICE_TYPES.TABLET]: {
-    maxWidth: '85vw',
-    maxHeight: '75vh',
+    maxWidth: '75vw',
+    maxHeight: '85vh',
     minWidth: '400px',
-    bottomSpacing: '140px',
-    breakpoint: { min: 769, max: 1366 }
+    bottomSpacing: '120px',
+    breakpoint: { min: 768, max: 1366 }
   },
   [DEVICE_TYPES.DESKTOP]: {
     maxWidth: '80vw',
@@ -45,13 +45,14 @@ export const getDeviceType = (width = window.innerWidth, height = window.innerHe
   }
   
   // Tablet devices (including iPad Pro)
-  // iPad Pro Portrait: 1024×1366
-  // iPad Pro Landscape: 1366×1024
-  if (width <= 1024 || (width <= 1366 && height <= 1024)) {
+  // iPad Pro Portrait: 1024×1366, iPad Pro Landscape: 1366×1024
+  // Regular iPad: 768×1024, 1024×768
+  // Broader tablet detection for all iPad variants
+  if (width <= 1366) {
     return DEVICE_TYPES.TABLET;
   }
   
-  // Desktop devices
+  // Desktop devices (large screens)
   return DEVICE_TYPES.DESKTOP;
 };
 
