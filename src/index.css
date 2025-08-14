@@ -1,4 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@font-face {
+  font-family: 'Gentona';
+  src: url('/Gentona-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gentona';
+  src: url('/Gentona-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Remove Google Fonts import if you want only Gentona */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
 
 @keyframes spin {
   from {
@@ -28,11 +43,32 @@
 }
 
 * {
-
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: 'Gentona', sans-serif;
+}
+
+/* For headings, use semi-bold */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Gentona', sans-serif;
+  font-weight: 600;
+}
+
+/* For body, use light */
+body,
+p,
+span,
+button,
+input,
+textarea {
+  font-family: 'Gentona', sans-serif;
+  font-weight: 300;
 }
 
 body {
@@ -335,7 +371,7 @@ screen and (min-width: 1200px) and (max-height: 1024px) and (orientation: landsc
 }
 
 .button-container-wlcm button {
-  background-color: #2244A2;
+  background-color: #2244a2;
   color: #ffffff;
   width: 80vw;
   padding: 30px 0px;
@@ -367,7 +403,7 @@ screen and (min-width: 1200px) and (max-height: 1024px) and (orientation: landsc
 
 
 .capture-btn-gg button {
-  background-color: #2244A2;
+  background-color: #2244a2;
   color: #ffffff;
   width: 40vw;
   padding: 24px 0;
@@ -585,7 +621,7 @@ screen and (min-width: 1200px) and (max-height: 1024px) and (orientation: landsc
 }
 
 .background-thumbnail.selected {
-  border-color: #2244A2;
+  border-color: #2244a2;
   border-width: 8px;
   transform: scale(1.1);
 }
@@ -619,7 +655,7 @@ screen and (min-width: 1200px) and (max-height: 1024px) and (orientation: landsc
 
 .back-button,
 .continue-button {
-  background-color: #2244A2;
+  background-color: #2244a2;
   color: #ffffff;
   padding: 20px 40px;
   font-size: 24px;
