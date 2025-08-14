@@ -4,12 +4,12 @@ import { useDispatch } from 'react-redux';
 import { setSelectedBackground } from '../features/appSlice';
 
 const BACKGROUND_OPTIONS = [
-  { id: 'bg', src: '/bg.jpg', label: 'Background 1' },
-  { id: 'bg1', src: '/bg1.jpg', label: 'Background 2' },
-  { id: 'bg2', src: '/bg2.jpg', label: 'Background 3' },
-  { id: 'bg3', src: '/bg3.jpg', label: 'Background 4' },
-  { id: 'bg4', src: '/bg4.jpg', label: 'Background 5' },
-  { id: 'bg5', src: '/bg5.jpg', label: 'Background 6' }
+  { id: 'bg', src: '/bg.jpg', label: 'Charminar' },
+  { id: 'bg1', src: '/bg1.jpg', label: 'Mysuru Palace' },
+  { id: 'bg2', src: '/bg2.jpg', label: 'Taj Mahal' },
+  { id: 'bg3', src: '/bg3.jpg', label: 'Vidhana Saudha' },
+  { id: 'bg4', src: '/bg4.jpg', label: 'Victoria Memorial' },
+  { id: 'bg5', src: '/bg5.jpg', label: 'Worli Sea Link' }
 ];
 
 function BackgroundSelectionPage() {
@@ -17,6 +17,15 @@ function BackgroundSelectionPage() {
   const dispatch = useDispatch();
   const [selectedBackground, setSelectedBackgroundLocal] = useState(null);
   const [error, setError] = useState(null);
+  // Fullscreen functionality
+  const goFullScreen = () => {
+    const element = document.documentElement; // whole page
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.webkitRequestFullscreen) { // Safari
+      element.webkitRequestFullscreen();
+    }
+  };
 
   // Handle background selection
   const handleBackgroundSelect = (background) => {
@@ -84,6 +93,25 @@ function BackgroundSelectionPage() {
           Take Photo
         </button>
       </div>
+
+            {/* Invisible fullscreen button at bottom left */}
+            <button
+        onClick={goFullScreen}
+        style={{
+          position: 'fixed',
+          bottom: '20px',
+          left: '20px',
+          width: '50px',
+          height: '50px',
+          backgroundColor: 'transparent',
+          border: 'none',
+          cursor: 'pointer',
+          zIndex: 1000,
+          opacity: 0
+        }}
+        aria-label="Go Fullscreen"
+      />
+
     </div>
   );
 }
