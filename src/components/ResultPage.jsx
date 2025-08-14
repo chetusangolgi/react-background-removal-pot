@@ -148,7 +148,7 @@ function ResultPage() {
          alignItems: 'center',
          justifyContent: deviceType === 'mobile' ? 'center' : 'space-evenly',
          gap: deviceType === 'mobile' ? '20px' : '0px',
-         width: '100vw',
+         width: '80vw',
          height: '100vh',
          padding: deviceType === 'tablet' ? '20px' : '40px',
          boxSizing: 'border-box',
